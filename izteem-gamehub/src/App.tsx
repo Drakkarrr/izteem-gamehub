@@ -1,12 +1,21 @@
 import "./App.css";
-import Alert from "./components/Alert";
+import Button from "./components/Button";
 
 function App() {
   return (
     <div className="App">
-      <Alert>
-        <h1>Alert</h1>
-      </Alert>
+      <Button type="primary" onClick={() => console.log("Cliked!")}>
+        Primary Button
+      </Button>
+      <Button type="secondary" onClick={() => console.log("Cliked!")}>
+        Secondary Button
+      </Button>
+      <Button type="danger" onClick={() => console.log("Cliked!")}>
+        Danger Button
+      </Button>
+      <Button type="warning" onClick={() => console.log("Cliked!")}>
+        Warning Button
+      </Button>
     </div>
   );
 }
