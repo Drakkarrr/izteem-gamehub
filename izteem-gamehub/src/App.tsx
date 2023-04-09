@@ -1,20 +1,16 @@
+import { useState } from "react";
 import "./App.css";
+import Alert from "./components/Alert";
 import Button from "./components/Button";
 
 function App() {
+  const [toggle, setToggle] = useState<boolean>(false);
+
   return (
     <div className="App">
-      <Button type="primary" onClick={() => console.log("Cliked!")}>
-        Primary Button
-      </Button>
-      <Button type="secondary" onClick={() => console.log("Cliked!")}>
-        Secondary Button
-      </Button>
-      <Button type="danger" onClick={() => console.log("Cliked!")}>
-        Danger Button
-      </Button>
-      <Button type="warning" onClick={() => console.log("Cliked!")}>
-        Warning Button
+      {toggle && <Alert onClick={() => setToggle(false)} />}
+      <Button type="primary" onClick={() => setToggle(true)}>
+        My Button
       </Button>
     </div>
   );
