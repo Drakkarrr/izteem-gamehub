@@ -1,10 +1,10 @@
 import "./App.css";
-import ListGroup from "./components/list-group/ListGroup";
+import Icons from "./components/Icons";
 
 function App() {
   return (
     <div className="App">
-      <ListGroup />
+      <Icons onClick={() => console.log("clicked yeah")} />
     </div>
   );
 }
