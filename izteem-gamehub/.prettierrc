@@ -1,0 +1,24 @@
+{
+  "extends": ["airbnb", "prettier", "plugin:node/recommended"],
+  "plugins": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": "warn",
+    "no-console": "off",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "trailingComma": "airbnb",
+    "bracketSpacing": true,
+    "arrowParens": "always",
+    "proseWrap": "never",
+    "htmlWhitespaceSensitivity": "strict",
+    "jsxSingleQuote": true,
+    "jsxBracketSameLine": false,
+    "singleQuote": true
+  }
+}

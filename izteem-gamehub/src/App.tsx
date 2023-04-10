@@ -1,10 +1,10 @@
 import "./App.css";
-import Icons from "./components/Icons";
+import Form from "./components/Form";
 
 function App() {
   return (
     <div className="App">
-      <Icons onClick={() => console.log("clicked yeah")} />
+      <Form />
     </div>
   );
 }
