@@ -12,6 +12,7 @@
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.0.1",
     "@types/react-icons": "^3.0.0",
     "@types/styled-components": "^5.1.26",
     "bootstrap": "^5.2.3",
@@ -19,7 +20,8 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^5.3.9",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.28",
