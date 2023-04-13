@@ -1,34 +1,80 @@
-import React from "react";
-import { categories } from "../../App";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import categories from "../categories";
+
+const schema = z.object({
+  description: z
+    .string()
+    .min(3, { message: "Description must be atleast 3 characters" })
+    .max(50),
+  amount: z.number({ invalid_type_error: "Amount is required" }).min(0),
+  category: z.enum(categories),
+});
+
+type ExpenseFormData = z.infer<typeof schema>;
 
 const ExpenseForm = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<ExpenseFormData>({
+    resolver: zodResolver(schema),
+  });
+
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit((data) => console.log(data))}>
         <div className="mb-3">
           <label htmlFor="description" className="form-label">
             Description
           </label>
-          <input type="text" className="form-control" id="description" />
+          <input
+            {...register("description")}
+            type="text"
+            className="form-control"
+            id="description"
+          />
+          {errors.description && (
+            <div className="alert alert-danger">
+              {errors.description.message}
+            </div>
+          )}
         </div>
         <div className="mb-3">
           <label htmlFor="amount" className="form-label">
             Amount
           </label>
-          <input type="number" className="form-control" id="amount" />
+          <input
+            {...register("amount", { valueAsNumber: true })}
+            type="number"
+            className="form-control"
+            id="amount"
+          />
+          {errors.amount && (
+            <div className="alert alert-danger">{errors.amount.message}</div>
+          )}
         </div>
 
         <div className="mb-3">
           <label htmlFor="category" className="form-label">
             Category
           </label>
-          <select className="form-select" id="category">
+          <select
+            {...register("category")}
+            className="form-select"
+            id="category"
+          >
             {categories.map((category) => (
               <option key={category} value={category}>
                 {category}
               </option>
             ))}
           </select>
+          {errors.category && (
+            <div className="alert alert-danger">{errors.category.message}</div>
+          )}
         </div>
         <button className="btn btn-primary">Submit</button>
       </form>
