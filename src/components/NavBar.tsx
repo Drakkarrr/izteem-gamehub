@@ -1,12 +1,13 @@
 import { HStack, Img, Text } from "@chakra-ui/react";
-import IzteemLogo from "../assets/izteem-logo.png";
+import IzteemLogo from "../assets/izteem.png";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 const NavBar = () => {
   return (
     <>
-      <HStack>
-        <Img src={IzteemLogo} boxSize={40} alt="Logo" />
-        <Text fontSize="4xl">NavBar</Text>
+      <HStack justifyContent={"space-between"} padding="10px">
+        <Img src={IzteemLogo} boxSize="150px" alt="Logo" />
+        <ColorModeSwitch />
       </HStack>
     </>
   );

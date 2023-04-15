@@ -15,13 +15,9 @@ const App = () => {
           <NavBar />
         </GridItem>
         <Show above="lg">
-          <GridItem gridArea="aside" bg={"red"}>
-            Aside
-          </GridItem>
+          <GridItem gridArea="aside">Aside</GridItem>
         </Show>
-        <GridItem gridArea={"main"} bg={"green"}>
-          Main
-        </GridItem>
+        <GridItem gridArea={"main"}>Main</GridItem>
       </Grid>
     </>
   );
