@@ -1,4 +1,4 @@
-import { HStack, Img, Text } from "@chakra-ui/react";
+import { HStack, Img } from "@chakra-ui/react";
 import IzteemLogo from "../assets/izteem.png";
 import ColorModeSwitch from "./ColorModeSwitch";
 
