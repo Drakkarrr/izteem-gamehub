@@ -17,8 +17,8 @@
     "arrowParens": "always",
     "proseWrap": "never",
     "htmlWhitespaceSensitivity": "strict",
-    "jsxSingleQuote": true,
     "jsxBracketSameLine": false,
-    "singleQuote": true
+    "singleQuote": true,
+    "jsxSingleQuote": true
   }
 }
