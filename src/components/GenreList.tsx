@@ -12,13 +12,15 @@ import getCroppedImageUrl from "./../services/image-url";
 import React from "react";
 
 interface GenreListProps {
-  onSelectedGenre: (genre: Genre) => void;
+  onSelectGenre: (genre: Genre) => void;
 }
 
-const GenreList: React.FC<GenreListProps> = ({ onSelectedGenre }) => {
+const GenreList: React.FC<GenreListProps> = ({ onSelectGenre }) => {
   const { data, isLoading, error } = useGenres();
+
   if (error) return null;
   if (isLoading) return <Spinner />;
+
   return (
     <List>
       {data.map((genre) => (
@@ -32,7 +34,7 @@ const GenreList: React.FC<GenreListProps> = ({ onSelectedGenre }) => {
             <Button
               fontSize="lg"
               variant="link"
-              onClick={() => onSelectedGenre(genre)}
+              onClick={() => onSelectGenre(genre)}
             >
               {genre.name}
             </Button>
