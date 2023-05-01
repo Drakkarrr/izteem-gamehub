@@ -6,8 +6,12 @@ import GameCardContainer from "./GameCardContainer";
 import { Genre } from "hooks/useGenres";
 import React from "react";
 
-const GameGrid = () => {
-  const { data, error, isLoading } = useGames();
+interface Props {
+  selectedGenre: () => Genre | null;
+}
+
+const GameGrid: React.FC<Props> = ({ selectedGenre }) => {
+  const { data, error, isLoading } = useGames(selectedGenre as any);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (

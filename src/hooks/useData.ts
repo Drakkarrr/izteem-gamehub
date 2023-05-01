@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
-import { CanceledError } from "axios";
+import { Axios, AxiosRequestConfig, CanceledError } from "axios";
 
 
 interface FatechResponse<T> {
@@ -8,7 +8,7 @@ interface FatechResponse<T> {
     results: T[];
 }
 
-const useData = <T>(endpoint: string) => {
+const useData = <T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any[]) => {
     const [data, setData] = useState<T[]>([]);
     const [error, setError] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -18,7 +18,7 @@ const useData = <T>(endpoint: string) => {
 
         setIsLoading(true);
         apiClient
-            .get<FatechResponse<T>>(endpoint, { signal: controller.signal })
+            .get<FatechResponse<T>>(endpoint, { signal: controller.signal, ...requestConfig })
             .then((res) => {
                 setData(res.data.results);
                 setIsLoading(false);
@@ -30,7 +30,7 @@ const useData = <T>(endpoint: string) => {
             });
 
         return () => controller.abort();
-    }, []);
+    }, deps ? [...deps] : []);
 
     return { data, error, isLoading };
 };
