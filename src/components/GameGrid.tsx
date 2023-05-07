@@ -7,11 +7,11 @@ import { Genre } from "hooks/useGenres";
 import React from "react";
 
 interface Props {
-  selectedGenre: () => Genre | null;
+  selectedGenre: Genre | null;
 }
 
 const GameGrid: React.FC<Props> = ({ selectedGenre }) => {
-  const { data, error, isLoading } = useGames(selectedGenre as any);
+  const { data, error, isLoading } = useGames(selectedGenre);
   const skeletons = [1, 2, 3, 4, 5, 6];
 
   return (
