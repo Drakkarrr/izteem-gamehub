@@ -4,6 +4,7 @@ import React from "react";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
 import getCroppedImageUrl from "../services/image-url";
+import RatingIcons from "./RatingIcons";
 
 interface GameCardProps {
   game: Game;
@@ -20,7 +21,9 @@ const GameCard: React.FC<GameCardProps> = ({ game }) => {
           />
           <CriticScore score={game.metacritic} />
         </HStack>
-        <Heading fontSize="2xl">{game.name}</Heading>
+        <Heading fontSize="2xl">
+          {game.name} <RatingIcons rating={game.rating_top} />
+        </Heading>
       </CardBody>
     </Card>
   );
