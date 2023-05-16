@@ -19,7 +19,7 @@ const GameGrid: React.FC<Props> = ({ gameQuery }) => {
       {error && <Text>{error}</Text>}
       <SimpleGrid
         padding="10px"
-        spacing={3}
+        spacing={6}
         columns={{
           sm: 1,
           md: 2,
