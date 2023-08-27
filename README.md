@@ -64,11 +64,3 @@ The project utilizes the following dependencies:
 1. Obtain an API key from the [RAWG API](https://rawg.io/apidocs) and add it to your environment.
 2. Start the development server: `npm run dev`
 3. Open your browser and go to `http://localhost:3000`
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
-
-Feel free to contribute by submitting issues or pull requests. For any questions, you can contact me at your@email.com.
-
-Happy gaming!
